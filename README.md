@@ -22,42 +22,85 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descripcion
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+API Desarrollada con [Nest](https://github.com/nestjs/nest) framework + TypeScript
 
-## Instalar nest
+
+## Pasos para correr la API
+
+
+### Instalar nest
+
 
 ```
-$ npm i -g @nestjs/cli
+npm i -g @nestjs/cli
 ```
-## clonar repositorio
-
+### clonar repositorio
 
 
 ```bash
-$ npm install
+git clone https://github.com/Thecris28/Api-ferremas.git
+
+
+cd Api-ferremas
+```
+### Instalar dependencias
+```bash
+npm install
 ```
 
-## Running the app
+
+### Iniciar app
+
 
 ```bash
 # development
-$ npm run start
+npm run start
+
 
 # watch mode
-$ npm run start:dev
+npm run start:dev
 
-# production mode
-$ npm run start:prod
+
 ```
 
-## Ejecutar peticion http
 
-```bash
+### Ejecutar peticion http
+
+
+```ruby
 # Para generar datos en la api
-$ localhost:3000/api/seed
-```
+localhost:3000/api/seed
 
+# Para consultar por los productos
+GET
+localhost:3000/api/productos
+
+#Para crear un producto
+POST
+localhost:3000/api/productos
+# cuerpo de ejemplo
+  marca: 'Bauker',
+  codigo: 'Bkr-2',
+  nombre: 'taladro',
+  categoriaId: 1,
+  precio: 50000,
+  stock: 5,
+
+# Buscar un solo producto
+GET
+localhost:3000/api/productos/id
+
+GET
+# Buscar todos los productos de una categoria
+localhost:3000/api/productos/categorias/id
+
+
+```
+### Api categorias
+```ruby
+# Para consultar por las categorias
+localhost:3000/api/categorias
+```
