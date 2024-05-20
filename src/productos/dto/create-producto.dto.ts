@@ -11,6 +11,10 @@ export class CreateProductoDto {
 
     @IsString()
     nombre: string;
+
+    @IsNumber()
+    @Type(() => Number)
+    categoriaId: number;
     
     @IsNumber()
     @Type(() => Number)

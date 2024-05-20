@@ -8,27 +8,28 @@ import { v4 as uuidv4 } from 'uuid'
 export class ProductosService {
 
   private products: Producto[] = [
-    {
-      id: uuidv4(),
-      marca: 'samsung',
-      codigo: '123',
-      nombre: 'celular',
-      precio: 1000,
-      stock: 10,
-      createdAt: new Date(),
-
-    }
+    // {
+    //   id: uuidv4(),
+    //   marca: 'samsung',
+    //   codigo: '123',
+    //   nombre: 'celular',
+    //   categoriaId: 1,
+    //   precio: 1000,
+    //   stock: 10,
+    //   createdAt: new Date(),
+    // }
   ];
 
 
 
   create(createProductoDto: CreateProductoDto) {
-    const {marca, codigo, nombre, precio, stock} = createProductoDto
+    const {marca, codigo, nombre, categoriaId, precio, stock} = createProductoDto
     const newProduct = new Producto(
       uuidv4(),
       marca,
       codigo,
       nombre,
+      categoriaId,
       precio,
       stock,
       new Date(),
@@ -36,6 +37,10 @@ export class ProductosService {
 
     this.products.push(newProduct);
     return newProduct;
+  }
+
+  findByCategoria(id: number) {
+    return this.products.filter(producto => producto.categoriaId === id);
   }
 
   findAll() {
@@ -69,5 +74,9 @@ export class ProductosService {
     
     this.products = this.products.filter(producto => producto.id !== id);
     return `El producto con id #${id} fue eliminado`;
+  }
+
+  addProductSeed(productos: Producto[]) {
+    this.products = productos;
   }
 }
