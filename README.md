@@ -87,7 +87,8 @@ Datos para iniciar sesion
 -email
 pasword
 
-# se regresara un token es debe ser enviado para poder consultar los endpoint que se listan a continuacion
+# se regresara un token que debe ser enviado para poder consultar los endpoint que se listan a 
+# continuacion
 Utilizar Beaber Token
 
 # Para consultar por los productos
