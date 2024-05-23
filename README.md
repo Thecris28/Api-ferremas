@@ -74,6 +74,22 @@ npm run start:dev
 # Para generar datos en la api
 localhost:3000/api/seed
 
+#Primero para interactuar con los endpoints en necesario registrarse a traves de :
+localhost:3000/api/auth/register
+Datos para registrarse : 
+-email 
+-password 
+-nombre
+
+#Despues inicia sesion a traves de 
+localhost:3000/api/auth/login
+Datos para iniciar sesion 
+-email
+pasword
+
+# se regresara un token es debe ser enviado para poder consultar los endpoint que se listan a continuacion
+Utilizar Beaber Token
+
 # Para consultar por los productos
 GET
 localhost:3000/api/productos
