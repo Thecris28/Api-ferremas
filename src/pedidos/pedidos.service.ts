@@ -1,9 +1,19 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreatePedidoDto } from './dto/create-pedido.dto';
 import { UpdatePedidoDto } from './dto/update-pedido.dto';
+import { Pedido } from './entities/pedido.entity';
+import { ProductosService } from 'src/productos/productos.service';
 
 @Injectable()
 export class PedidosService {
+
+  private pedidos : Pedido[] = [] 
+
+  constructor( 
+    private readonly productosService: ProductosService
+  ){
+
+  }
   create(createPedidoDto: CreatePedidoDto) {
     return 'This action adds a new pedido';
   }
@@ -12,7 +22,9 @@ export class PedidosService {
     return `This action returns all pedidos`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
+    const pedido = this.pedidos.find(pedido => pedido.id === id);
+    if(!pedido) throw new NotFoundException(`El pedido con el id:${id} no existe`);
     return `This action returns a #${id} pedido`;
   }
 
