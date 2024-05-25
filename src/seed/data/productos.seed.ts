@@ -102,6 +102,97 @@ export const PRODUCTS_SEED: Producto[] = [
         precio: 3890,
         stock: 40,
         createdAt: new Date(),
-      }
+      },
+      {
+        id: uuidv4(),
+        marca: 'Mamut',
+        codigo: 'mmt3',
+        nombre: 'Tornillo yeso carton punta fina',
+        categoriaId: 4,
+        precio: 3890,
+        stock: 40,
+        createdAt: new Date(),
+    },
+    {
+        id: uuidv4(),
+        marca: 'Mamut',
+        codigo: 'mmt4',
+        nombre: 'Clavo de acero',
+        categoriaId: 4,
+        precio: 1500,
+        stock: 100,
+        createdAt: new Date(),
+    },
+    {
+        id: uuidv4(),
+        marca: 'Mamut',
+        codigo: 'mmt5',
+        nombre: 'Tornillo madera punta gruesa',
+        categoriaId: 4,
+        precio: 4200,
+        stock: 75,
+        createdAt: new Date(),
+    },
+    {
+        id: uuidv4(),
+        marca: 'Mamut',
+        codigo: 'mmt6',
+        nombre: 'Clavo sin cabeza',
+        categoriaId: 4,
+        precio: 1350,
+        stock: 120,
+        createdAt: new Date(),
+    },
+    {
+        id: uuidv4(),
+        marca: 'Mamut',
+        codigo: 'mmt7',
+        nombre: 'Tornillo autoperforante',
+        categoriaId: 4,
+        precio: 5000,
+        stock: 60,
+        createdAt: new Date(),
+    },
+    {
+      
+      id: uuidv4(),
+      marca: 'Bauker',
+      codigo: '124',
+      nombre: 'Sierra Circular',
+      categoriaId: 1,
+      precio: 75000,
+      stock: 5,
+      createdAt: new Date()
+  },
+  {
+      id: uuidv4(),
+      marca: 'Bauker',
+      codigo: '125',
+      nombre: 'Lijadora',
+      categoriaId: 1,
+      precio: 30000,
+      stock: 15,
+      createdAt: new Date()
+  },
+  {
+      id: uuidv4(),
+      marca: 'Bauker',
+      codigo: '126',
+      nombre: 'Atornillador',
+      categoriaId: 1,
+      precio: 20000,
+      stock: 20,
+      createdAt: new Date()
+  },
+  {
+      id: uuidv4(),
+      marca: 'Bauker',
+      codigo: '127',
+      nombre: 'Esmeril Angular',
+      categoriaId: 1,
+      precio: 50000,
+      stock: 8,
+      createdAt: new Date()
+  }
 
 ]

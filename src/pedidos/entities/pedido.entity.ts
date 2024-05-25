@@ -1,10 +1,11 @@
 export class Pedido {
     id: string;
     userId: string;
-    productId: string;
-    cantidad: number;
+    items:{
+            productId: string;
+            quantity: number;
+          }[];
     estado: string;
     total: number;
     createdAt: Date;
-
 }
