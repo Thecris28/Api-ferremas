@@ -125,13 +125,13 @@ localhost:3000/api/seed
 
 * ``` localhost:3000/api/productos ```
 * Cuerpo de ejemplo
-  ```json
+  ```javascript
   marca: "Bauker",
   codigo: "Bkr-2",
   nombre: "taladro",
   categoriaId: 1,
   precio: 50000,
-  stock: 5,
+  stock: 5
   ```
   
 
