@@ -25,99 +25,131 @@
 ## Descripcion
 
 
-API Desarrollada con [Nest](https://github.com/nestjs/nest) framework + TypeScript
+🚧 🚧 API Desarrollada con [Nest](https://github.com/nestjs/nest) framework + TypeScript 🚧 🚧
+
+## Lista de operaciones que se pueden realizar 
+* Productos
+  * Crear un productos 
+  * Listar productos
+  * Listar producto por Id
+  * Listar productos por categoria
+  * Eliminar un producto
+* Usuarios
+  * Registrarse 
+  * Login
+* Categorias
+  * Consultar categorias
+  * Crear una nuva categoria
+  * Listar categorias
+* Pedidos
+  * Realizar un pedido
+  * Consultar un pedido
+  * Actualizar estado de un pedido
 
 
-## Pasos para correr la API
 
+## Requerimientos
 
-### Instalar nest
-
-
+* Nodejs 20.x.x ó superior.   [Instalar Nodejs]()
+```console
+node --version
+```
+* Instalar NestJS 
 ```
 npm i -g @nestjs/cli
 ```
-### clonar repositorio
 
+## Paso a paso para iniciar Api
+
+* Clonar repositorio
 
 ```bash
 git clone https://github.com/Thecris28/Api-ferremas.git
-
-
+```
+* Ingresar a la carpeta del proyecto
+```bash
 cd Api-ferremas
 ```
-### Instalar dependencias
+* Instalar dependencias
 ```bash
 npm install
 ```
 
 
-### Iniciar app
-
-
+* ### Iniciar app
 ```bash
-# development
-npm run start
-
-
 # watch mode
 npm run start:dev
-
-
 ```
 
 
-### Ejecutar peticion http
-
+* ### Ejecutar peticion http
 
 ```ruby
 # Para generar datos en la api
 localhost:3000/api/seed
+```
 
-#Primero para interactuar con los endpoints en necesario registrarse a traves de :
-localhost:3000/api/auth/register
-Datos para registrarse : 
--email 
--password 
--nombre
+### Primero para interactuar con los endpoints en necesario registrarse a traves de : 
 
-#Despues inicia sesion a traves de 
-localhost:3000/api/auth/login
-Datos para iniciar sesion 
--email
-pasword
+* Metodo : `Post`
 
-# se regresara un token que debe ser enviado para poder consultar los endpoint que se listan a 
-# continuacion
-Utilizar Beaber Token
+* ``` localhost:3000/api/auth/register  ``` 
 
-# Para consultar por los productos
-GET
-localhost:3000/api/productos
+### Datos para registrarse : 
+    email 
+    password 
+    nombre
 
-#Para crear un producto
-POST
-localhost:3000/api/productos
-# cuerpo de ejemplo
-  marca: 'Bauker',
-  codigo: 'Bkr-2',
-  nombre: 'taladro',
+
+### Despues inicia sesion a traves de 
+
+* Metodo : `POST`
+* ``` localhost:3000/api/auth/login ```
+
+### Datos para iniciar sesion 
+    email
+    password
+
+#### Se regresara un token que debe ser enviado para poder consultar los endpoint que se listan a continuacion :
+> [!IMPORTANT]
+> Utilizar Beaber Token 
+
+### Para consultar por los productos
+* Metodo : `GET`
+
+* ``` localhost:3000/api/productos ```
+
+### Para crear un producto
+* Metodo : `POST`
+
+* ``` localhost:3000/api/productos ```
+* Cuerpo de ejemplo
+  ```json
+  marca: "Bauker",
+  codigo: "Bkr-2",
+  nombre: "taladro",
   categoriaId: 1,
   precio: 50000,
   stock: 5,
+  ```
+  
 
-# Buscar un solo producto
-GET
-localhost:3000/api/productos/id
-
-GET
-# Buscar todos los productos de una categoria
-localhost:3000/api/productos/categorias/id
+### Buscar un solo producto
+* Metodo : `GET`
+* ```localhost:3000/api/productos/idProducto```
 
 
-```
-### Api categorias
-```ruby
-# Para consultar por las categorias
-localhost:3000/api/categorias
-```
+### Buscar todos los productos de una categoria
+* Metodo : `GET`
+* ```localhost:3000/api/productos/categorias/idCategoria```
+
+
+
+## Api categorias
+### Para consultar por las categorias
+
+* Metodo : `GET`
+* ```localhost:3000/api/categorias```
+
+
