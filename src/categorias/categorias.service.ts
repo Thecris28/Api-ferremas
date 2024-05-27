@@ -36,6 +36,7 @@ export class CategoriasService {
   update(id: number, updateCategoriaDto: UpdateCategoriaDto) {
     const { nombre } = updateCategoriaDto;
     let category = this.findOne(id);
+    if (!nombre) throw new NotFoundException(`Debe ingresar campo para actualizar`)
     this.categorias = this.categorias.map(categoria => {
       if(categoria.id === id){
         category.updatedAt = new Date();

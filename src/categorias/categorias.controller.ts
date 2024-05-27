@@ -1,9 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UsePipes } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UsePipes, UseGuards } from '@nestjs/common';
 import { CategoriasService } from './categorias.service';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { UpdateCategoriaDto } from './dto/update-categoria.dto';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('categorias')
+@UseGuards( AuthGuard )
 export class CategoriasController {
   constructor(private readonly categoriasService: CategoriasService) {}
 

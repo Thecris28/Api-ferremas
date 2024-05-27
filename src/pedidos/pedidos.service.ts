@@ -8,7 +8,26 @@ import { v4 as uuidv4 } from 'uuid'
 @Injectable()
 export class PedidosService {
 
-  private pedidos : Pedido[] = [] 
+  private pedidos : Pedido[] = [
+    {
+    "id": "14c82ecc-e24e-4c25-8c7a-634c262f4019",
+    "userId": "5d1ddc14-5260-441b-8429-cbd9ca3e38af",
+    "estado": "en espera",
+    "items": [
+        {
+            "productId": "88a3fa65-5138-4720-8674-9263677d8b3a",
+            "quantity": 3
+        },
+        {
+            "productId": "8377fd5d-cf89-4c0b-8a20-e57b781a9dfe",
+            "quantity": 4
+        }
+    ],
+    "total": 40000,
+    "createdAt": new Date(),
+  }
+  ] 
+
 
   constructor( 
     private readonly productosService: ProductosService
@@ -57,12 +76,15 @@ export class PedidosService {
 
   update(id: string, updatePedidoDto: UpdatePedidoDto) {
     const { estado } = updatePedidoDto
+    console.log(estado)
     const pedido = this.pedidos.find(pedido => pedido.id === id);
     if(!pedido) throw new NotFoundException(`El pedido con el id:${id} no existe`);
+    console.log(estado)
     const updatePedido = {
       ...pedido,
       estado
     }
+
     this.pedidos = this.pedidos.map(pedido => pedido.id === id ? updatePedido : pedido)
     return updatePedido
   }

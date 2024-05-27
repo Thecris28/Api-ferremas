@@ -30,11 +30,6 @@ export class AuthController {
     return 'private route'
   }
 
-  @Get('profile')
-  @UseGuards(AuthGuard)
-  getProfile(@Request() req) {
-    return req.user;
-  }
 
   
 
