@@ -25,7 +25,7 @@ export class PedidosController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePedidoDto: UpdatePedidoDto) {
+  update(@Param('id', ParseUUIDPipe) id: string, @Body() updatePedidoDto: UpdatePedidoDto) {
     return this.pedidosService.update(id, updatePedidoDto);
   }
 

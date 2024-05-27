@@ -38,6 +38,9 @@ export class PedidosService {
 
     const {userId, estado, items, total} = createPedidoDto
 
+    const user = this.pedidos.find(pedido => pedido.userId === userId && pedido.estado === 'en espera');
+    if(user) throw new NotFoundException(`No puede realizar mas pedidos hasta que pague el pedido anterior`);
+
     if(!total){
       const total = items.reduce((suma, item) => {
         const product = this.productosService.findOne(item.productId)
@@ -46,6 +49,7 @@ export class PedidosService {
       return total
   
     }
+    
     const newPedido = {
       id: uuidv4(),
       userId,
@@ -54,12 +58,13 @@ export class PedidosService {
       total: +total,
       createdAt: new Date()
     }
+    
 
     this.pedidos.push(newPedido)
 
     console.log(newPedido)
     return {...newPedido,
-      message: 'pedido creado',
+      message: 'Pedido creado',
     }
    
   }
@@ -87,6 +92,29 @@ export class PedidosService {
 
     this.pedidos = this.pedidos.map(pedido => pedido.id === id ? updatePedido : pedido)
     return updatePedido
+  }
+  findPedido(userId: string, pedidoId: string) {
+
+    const pedido = this.pedidos.find(pedido => pedido.userId === userId && pedido.id === pedidoId);
+
+    const pedido2 = this.pedidos.find(pedido => pedido.userId === userId && pedido.id === pedidoId && pedido.estado === 'Pagado');
+
+    if(pedido2) throw new NotFoundException(`El pedido con el id:${pedidoId} ya fue pagado`);
+
+    if(!pedido) throw new NotFoundException(`El pedido con el id:${pedidoId} no existe`);
+    const updatePedido = {
+      ...pedido,
+      estado: 'Pagado'
+    }
+    this.pedidos = this.pedidos.map(pedido => {
+      if(pedido.id === pedidoId && pedido.userId === userId){
+        return updatePedido
+      } 
+    })
+
+
+    return pedido
+
   }
 
 }

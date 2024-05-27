@@ -8,5 +8,6 @@ import { ProductosModule } from 'src/productos/productos.module';
   controllers: [PedidosController],
   providers: [PedidosService],
   imports: [ProductosModule],
+  exports: [PedidosService],
 })
 export class PedidosModule {}
